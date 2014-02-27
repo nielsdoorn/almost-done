@@ -3,13 +3,30 @@
 </head>
 
 <body>
-	<div id="deadlines">
-		{{> deadlines}}
-	</div>
-	<div id="createDeadline">
-		{{> add_deadline_form}}
+	{{> hello}}
+	
+	<div id="container">
+		<div id="deadlines">
+			{{> deadlines}}
+		</div>
+
+		{{#if currentUser}}
+		<div id="createDeadline">
+			{{> add_deadline_form}}
+	  </div>
+	  {{/if}}
+	  {{loginButtons}}
   </div>
 </body>
+
+<template name="hello">
+	{{#if currentUser}}
+		<h1>Hello {{name}}!</h1>
+	{{/if}}
+	{{#if currentUser}}
+		<h1>Hello Stranger!</h1>
+	{{/if}}
+</template>
 
 <template name="deadlines">
 	  <h1>These are the deadlines</h1>
@@ -20,21 +37,38 @@
 
 <template name="deadline">
 	<div class="deadline">
+		<span class="date">{{deadline}}</span>
+		<span class="groups">
+	  </span>
 		<span class="subject">{{subject}}</span>
 		<span class="task">{{task}}</span>
-		<span class="group">{{group}}</span>
-		<span class="date">{{deadline}}</span>
 	</div>
 </template>
 
 <template name="add_deadline_form">
 	<form name="add_deadline_form">
 		<ul>
-    <li><label for="subject">Subject:</label><input type="text" name="subject" placeholder="Webdesign" /></li>
-    <li><label for="task">Task:</label><input type="text" name="task" placeholder="WordPress theme" /></li>
-    <li><label for="group">Group:</label><input type="text" name="group" placeholder="MV42C" /></li>
-    <li><label for="deadline">Deadline:</label><input type="date" name="deadline" /></li>
-    <li><input type="submit" id="new-deadline" value="Add"></li>
+	    <li><label for="subject">Subject:</label><input type="text" name="subject" placeholder="WEB or PRG" /></li>
+	    <li><label for="task">Task:</label><input type="text" name="task" placeholder="WordPress theme" /></li>
+	    <li>
+	    	<div class="groups">
+	    		<ul>
+	    			{{#each groups}}
+	    				{{> group}}
+	    			{{/each}}	
+	    		</ul>
+	    	</div>
+	    </li>
+	    <li>
+	    	<label for="group">Group:</label><input type="text" name="group" placeholder="MV42C" />
+	    	<input type="button" name="add_group" value="Add" />
+	    </li>
+	    <li><label for="deadline">Deadline:</label><input type="date" name="deadline" /></li>
+	    <li><input type="submit" id="new-deadline" value="Add"></li>
     </ul>
   </form>  
+</template>
+
+<template name="group">
+	<li>{{name}}</li>
 </template>
