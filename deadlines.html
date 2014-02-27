@@ -3,9 +3,10 @@
 </head>
 
 <body>
-	{{> hello}}
-	
+	<div id="login">{{loginButtons}}</div>
 	<div id="container">
+		{{> hello}}
+	
 		<div id="deadlines">
 			{{> deadlines}}
 		</div>
@@ -15,15 +16,13 @@
 			{{> add_deadline_form}}
 	  </div>
 	  {{/if}}
-	  {{loginButtons}}
   </div>
 </body>
 
 <template name="hello">
 	{{#if currentUser}}
-		<h1>Hello {{name}}!</h1>
-	{{/if}}
-	{{#if currentUser}}
+		<h1>Hello {{username}}!</h1>
+	{{else}}
 		<h1>Hello Stranger!</h1>
 	{{/if}}
 </template>
@@ -38,10 +37,13 @@
 <template name="deadline">
 	<div class="deadline">
 		<span class="date">{{deadline}}</span>
-		<span class="groups">
-	  </span>
 		<span class="subject">{{subject}}</span>
 		<span class="task">{{task}}</span>
+		<div class="groups">
+			{{#each groups}}
+				<span class="group">{{name}}</span>
+			{{/each}}
+	 </div>
 	</div>
 </template>
 
@@ -70,5 +72,5 @@
 </template>
 
 <template name="group">
-	<li>{{name}}</li>
+	<li class="group">{{name}}</li>
 </template>

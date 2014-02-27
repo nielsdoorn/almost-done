@@ -1,5 +1,7 @@
 Deadlines = new Meteor.Collection("deadlines");
 
+//var Meteor = Package.meteor.Meteor;
+
 if (Meteor.isClient) {
   Template.deadlines.items = function() {
     return Deadlines.find({}, {sort: {deadline: 1}});
@@ -9,9 +11,11 @@ if (Meteor.isClient) {
     return Session.get("newGroups");
   }
 
-  if (Meteor.user !== null) {
-    Template.hello.name = "Niels";
-  }
+  Template.hello.username = function() {
+    if (Meteor.user()) {
+      return Meteor.user().emails[0].address;
+    }
+  };
 
   Template.add_deadline_form.events({
       'submit form': function(event) {   // also tried just 'submit', both work for me!
@@ -46,4 +50,7 @@ if (Meteor.isServer) {
   Meteor.startup(function () {
     // code to run on server at startup
   });
+  //Meteor.publish("userData", function () {
+  //  return Meteor.users.find({_id: this.userId}, {fields: {'username': 1, 'other': 1, 'things': 1}});
+  //});
 }

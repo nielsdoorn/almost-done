@@ -1,8 +1,17 @@
 /* CSS declarations go here */
-
 html, body {
 	min-height: 100%;
 	font-family: sans-serif;
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	background: linear-gradient(45deg, #f06, yellow);
 }
 
 label {
@@ -21,6 +30,63 @@ ul {
 	list-style: none;
 }
 
+#login {
+	text-align: left;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	padding: 10px;
+}
+
+#container {
+	height: 100%;
+	margin: 0 auto;
+	width: 800px;
+	background-color: rgba(255, 255, 255, 0.4);
+	padding: 10px;
+}
+
 .deadline {
-	background: linear-gradient(45deg, lightblue, darkblue);
+	line-height: 1.5em;
+}
+
+.date {
+	color: #900;
+}
+
+.subject {
+	color: #090;
+}
+
+.deadline span {
+	display: inline-block;
+	min-width: 80px;
+}
+
+.groups {
+}
+
+.group {
+	font-size: 0.8em;
+	border-radius: 2px;
+	background-color: rgba(255, 255, 255, 0.6);
+	text-align: center;
+	padding: 0 5px 0 5px;
+	min-width: 20px;
+	margin-top: 2px;
+}
+
+form .group {
+	display: block;
+	width: 120px;
+	margin-left: 120px;
+}
+
+form {
+	margin-top: 30px;
+}
+
+form[name=add_deadline_form] {
+	border-top: 1px solid black;
+	padding-top: 10px;
 }
