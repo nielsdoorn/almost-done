@@ -1,0 +1,26 @@
+/* CSS declarations go here */
+
+html, body {
+	min-height: 100%;
+	font-family: sans-serif;
+}
+
+label {
+	display: inline-block;
+	width: 120px;
+}
+
+input[type=text], input[type=date] {
+	display: inline-block;
+	width: 120px;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.deadline {
+	background: linear-gradient(45deg, lightblue, darkblue);
+}

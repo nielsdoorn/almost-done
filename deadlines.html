@@ -1,0 +1,40 @@
+<head>
+  <title>deadlines</title>
+</head>
+
+<body>
+	<div id="deadlines">
+		{{> deadlines}}
+	</div>
+	<div id="createDeadline">
+		{{> add_deadline_form}}
+  </div>
+</body>
+
+<template name="deadlines">
+	  <h1>These are the deadlines</h1>
+    {{#each items}}
+      {{> deadline}}
+    {{/each}}
+</template>
+
+<template name="deadline">
+	<div class="deadline">
+		<span class="subject">{{subject}}</span>
+		<span class="task">{{task}}</span>
+		<span class="group">{{group}}</span>
+		<span class="date">{{deadline}}</span>
+	</div>
+</template>
+
+<template name="add_deadline_form">
+	<form name="add_deadline_form">
+		<ul>
+    <li><label for="subject">Subject:</label><input type="text" name="subject" placeholder="Webdesign" /></li>
+    <li><label for="task">Task:</label><input type="text" name="task" placeholder="WordPress theme" /></li>
+    <li><label for="group">Group:</label><input type="text" name="group" placeholder="MV42C" /></li>
+    <li><label for="deadline">Deadline:</label><input type="date" name="deadline" /></li>
+    <li><input type="submit" id="new-deadline" value="Add"></li>
+    </ul>
+  </form>  
+</template>
