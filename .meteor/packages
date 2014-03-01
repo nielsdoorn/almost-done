@@ -9,3 +9,6 @@ insecure
 preserve-inputs
 accounts-ui
 accounts-password
+accounts-facebook
+accounts-github
+accounts-twitter

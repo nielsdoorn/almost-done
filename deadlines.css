@@ -11,7 +11,7 @@ html, body {
 }
 
 body {
-	background: linear-gradient(45deg, #f06, yellow);
+	background: linear-gradient(45deg, white, darkblue);
 }
 
 label {
